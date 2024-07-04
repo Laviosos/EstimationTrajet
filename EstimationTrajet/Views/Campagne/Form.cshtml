@@ -1,0 +1,42 @@
+﻿@model EstimationTrajet.Models.CampagneViewModel
+
+@{
+    ViewData["Title"] = "Form";
+}
+
+<h1>Form</h1>
+
+<h4>CampagneViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AdressEntreprise" class="control-label"></label>
+                <input asp-for="AdressEntreprise" class="form-control" />
+                <span asp-validation-for="AdressEntreprise" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CleApi" class="control-label"></label>
+                <input asp-for="CleApi" class="form-control" />
+                <span asp-validation-for="CleApi" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="CSV">Fichier.csv :</label>
+                <input asp-for="CSV" type="file" accept=".csv" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
